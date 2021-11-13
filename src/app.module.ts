@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
+import {AuthenticationModule} from './authentication/authentication.module';
 import {DatabaseModule} from './database/database.module';
 import { PostsModule } from './posts/posts.module';
 
@@ -14,10 +15,13 @@ import { PostsModule } from './posts/posts.module';
                 POSTGRES_PASSWORD: Joi.string().required(),
                 POSTGRES_DB: Joi.string().required(),
                 PORT: Joi.number(),
+                JWT_SECRET: Joi.string().required(),
+                JWT_EXPIRATION_TIME: Joi.string().required()
             }),
         }),
         DatabaseModule,
         PostsModule,
+        AuthenticationModule
     ],
     controllers: [],
     providers: [],
