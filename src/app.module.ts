@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import {APP_FILTER} from '@nestjs/core';
+import {APP_FILTER, APP_INTERCEPTOR} from '@nestjs/core';
 import * as Joi from 'joi';
 import {AuthenticationModule} from './authentication/authentication.module';
 import {DatabaseModule} from './database/database.module';
 import { PostsModule } from './posts/posts.module';
 import {ExceptionsLoggerFilter} from './utils/exceptions-logger.filter';
+import {ExcludeNullInterceptor} from './utils/exclude-null.interceptor';
 
 @Module({
     imports: [
@@ -30,6 +31,10 @@ import {ExceptionsLoggerFilter} from './utils/exceptions-logger.filter';
         {
             provide: APP_FILTER,
             useClass: ExceptionsLoggerFilter
+        },
+        {
+            provide: APP_INTERCEPTOR,
+            useClass: ExcludeNullInterceptor
         }
     ],
 })
