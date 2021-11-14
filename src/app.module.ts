@@ -7,6 +7,7 @@ import {DatabaseModule} from './database/database.module';
 import { PostsModule } from './posts/posts.module';
 import {ExceptionsLoggerFilter} from './utils/exceptions-logger.filter';
 import {ExcludeNullInterceptor} from './utils/exclude-null.interceptor';
+import {CategoriesModule} from './categories/categories.module';
 
 @Module({
     imports: [
@@ -24,7 +25,8 @@ import {ExcludeNullInterceptor} from './utils/exclude-null.interceptor';
         }),
         DatabaseModule,
         PostsModule,
-        AuthenticationModule
+        AuthenticationModule,
+        CategoriesModule
     ],
     controllers: [],
     providers: [

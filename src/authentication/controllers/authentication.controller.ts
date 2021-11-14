@@ -8,7 +8,7 @@ import { AuthenticationService } from '../services/authentication.service';
 
 @Controller('authentication')
 @SerializeOptions({
-    strategy: 'excludeAll'
+    strategy: 'exposeAll'
 })
 export class AuthenticationController {
     constructor(private readonly authenticationService: AuthenticationService) {}

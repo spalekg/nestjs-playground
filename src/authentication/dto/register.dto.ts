@@ -12,4 +12,6 @@ export class RegisterDto {
 
     @IsEmail()
     email: string;
+
+    address: { street: string; city: string; country: string; };
 }
