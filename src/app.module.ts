@@ -8,6 +8,7 @@ import { PostsModule } from './posts/posts.module';
 import {ExceptionsLoggerFilter} from './utils/exceptions-logger.filter';
 import {ExcludeNullInterceptor} from './utils/exclude-null.interceptor';
 import {CategoriesModule} from './categories/categories.module';
+import {FilesModule} from './files/files.module';
 
 @Module({
     imports: [
@@ -20,6 +21,8 @@ import {CategoriesModule} from './categories/categories.module';
                 POSTGRES_DB: Joi.string().required(),
                 PORT: Joi.number(),
                 JWT_SECRET: Joi.string().required(),
+                AWS_PROFILE: Joi.string().required(),
+                AWS_BUCKET_NAME: Joi.string().required(),
                 JWT_EXPIRATION_TIME: Joi.string().required()
             }),
         }),
